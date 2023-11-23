@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # route for LIST
-  get '/lists', to: 'lists#index', as: :lists
-  get '/lists/:id', to: 'lists#show', as: :list
-  get '/lists/new', to: 'lists#new', as: :new_list
-  post '/lists', to: 'lists#create'
+  resources :lists, only: [:index, :new, :create, :show] do
+    resources :bookmarks, only: [:new, :create]
+  end
 end
