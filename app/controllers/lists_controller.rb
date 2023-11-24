@@ -10,7 +10,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list), notice: 'List was successfully created.'
+      redirect_to list_path(@list)
     else
       render :new
     end
@@ -18,6 +18,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @bookmarks = @list.bookmarks
   end
 
   private
