@@ -1,4 +1,8 @@
-<%= simple_form_for(list) do |f| %>
+<div class="container p-5 my-5 bg-dark text-white">
+  <%= simple_form_for(list) do |f| %>
+  <h2>Create a new list</h2>
   <%= f.input :name %>
-  <%= f.submit %>
+  <%= f.input :image_url %>
+  <%= f.submit class: "btn btn-primary btn-lg"%>
 <% end %>
+</div>

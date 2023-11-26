@@ -1,11 +1,27 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
+<div class="cover mb-4 d-flex align-items-center justify-content-center page1">
   <h1>Create some new lists</h1>
 </div>
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= link_to list.name, list_path(list) %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to "+ Add new list", new_list_path %>
+<div class="container p-5 my-5 bg-dark text-white">
+  <div class="row text-center mt-5">
+    <h2 class="text-center mt-5">My lists</h2>
+    <% @lists.each do |list| %>
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class: "no-underline" do %>
+          <div class="card" style="width:400px">
+            <% if list.image_url.present? %>
+              <%= image_tag list.image_url, class: "card-img-top", alt: "List Image" %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1530840197133-665af68f9d71?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "card-img-top", alt: "Default Image" %>
+            <% end %>
+            <div class="card-body btn btn-secondary">
+              <%= list.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center mt-5">
+    <%= link_to "+ Add new list", new_list_path, class: "btn btn-primary btn-lg" %>
+  </div>
+</div>

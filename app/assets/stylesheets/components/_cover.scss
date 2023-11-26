@@ -1,9 +1,16 @@
 .cover {
-  background-image: url('cover.jpg');
   height: 500px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   color: white;
+}
+
+.page1 {
+  background-image: url('cover.jpg');
+}
+
+.page2 {
+  background-image: url('cover2.jpg');
 }
